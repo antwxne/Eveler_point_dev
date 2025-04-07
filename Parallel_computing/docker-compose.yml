@@ -11,6 +11,7 @@ services:
       - api
     volumes:
       - "./notebook/files:/app/files"
+      - "./notebook/resources:/app/resources"
     environment:
       - API_URL=http://api:8000
   api:
