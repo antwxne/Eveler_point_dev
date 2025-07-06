@@ -142,7 +142,6 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "sqlalchemy" },
     { name = "strawberry-graphql", extra = ["fastapi"] },
-    { name = "strawberry-sqlalchemy-mapper" },
 ]
 
 [package.dev-dependencies]
@@ -158,7 +157,6 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "sqlalchemy", specifier = ">=2.0.41" },
     { name = "strawberry-graphql", extras = ["fastapi"], specifier = ">=0.275.5" },
-    { name = "strawberry-sqlalchemy-mapper", specifier = ">=0.6.3" },
 ]
 
 [package.metadata.requires-dev]
@@ -502,15 +500,6 @@ wheels = [
 ]
 
 [[package]]
-name = "sentinel"
-version = "1.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/4a/d8/49115169583d02b38e7d93909a474c7ed0863f7d4df27095588344f2e66a/sentinel-1.0.0.tar.gz", hash = "sha256:190928f9951af6e94a1f84eefcaed791c28097dd152b88e988906be300451fd2", size = 6981 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/f3/c4/37cd564e7c5ee72afc864e43b872c716ed43604e50ea0adbb510d720f92d/sentinel-1.0.0-py3-none-any.whl", hash = "sha256:24f02a34cc9f0fcba5a666a23b6c7f56aff332fc624632ee442e7237751a9f60", size = 6485 },
-]
-
-[[package]]
 name = "shellingham"
 version = "1.5.4"
 source = { registry = "https://pypi.org/simple" }
@@ -538,20 +527,6 @@ wheels = [
 ]
 
 [[package]]
-name = "sqlakeyset"
-version = "2.0.1746777265"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "packaging" },
-    { name = "python-dateutil" },
-    { name = "sqlalchemy" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/3b/24/f5f8f28757e697b095e5edd077a37104cf98cd799ba6ab5d902cf7eaeed6/sqlakeyset-2.0.1746777265.tar.gz", hash = "sha256:86c81292b8fed283357509a9c0fa10b057b953e8ab7ed85e290b2766d1e7ef84", size = 111128 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d2/26/035a313c420784b705cd653e6b6305df448faf1a048cf84fe6b092b3697e/sqlakeyset-2.0.1746777265-py3-none-any.whl", hash = "sha256:ca334d593b9b1d86cbefca7fda7909cc7c37b031673e16c7349a38c48c550e8b", size = 26875 },
-]
-
-[[package]]
 name = "sqlalchemy"
 version = "2.0.41"
 source = { registry = "https://pypi.org/simple" }
@@ -570,11 +545,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/fa/2e/677c17c5d6a004c3c45334ab1dbe7b7deb834430b282b8a0f75ae220c8eb/sqlalchemy-2.0.41-cp313-cp313-win32.whl", hash = "sha256:bfc9064f6658a3d1cadeaa0ba07570b83ce6801a1314985bf98ec9b95d74e15f", size = 2082420 },
     { url = "https://files.pythonhosted.org/packages/e9/61/e8c1b9b6307c57157d328dd8b8348ddc4c47ffdf1279365a13b2b98b8049/sqlalchemy-2.0.41-cp313-cp313-win_amd64.whl", hash = "sha256:82ca366a844eb551daff9d2e6e7a9e5e76d2612c8564f58db6c19a726869c1df", size = 2108329 },
     { url = "https://files.pythonhosted.org/packages/1c/fc/9ba22f01b5cdacc8f5ed0d22304718d2c758fce3fd49a5372b886a86f37c/sqlalchemy-2.0.41-py3-none-any.whl", hash = "sha256:57df5dc6fdb5ed1a88a1ed2195fd31927e705cad62dedd86b46972752a80f576", size = 1911224 },
-]
-
-[package.optional-dependencies]
-asyncio = [
-    { name = "greenlet" },
 ]
 
 [[package]]
@@ -608,22 +578,6 @@ wheels = [
 fastapi = [
     { name = "fastapi" },
     { name = "python-multipart" },
-]
-
-[[package]]
-name = "strawberry-sqlalchemy-mapper"
-version = "0.6.3"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "greenlet" },
-    { name = "sentinel" },
-    { name = "sqlakeyset" },
-    { name = "sqlalchemy", extra = ["asyncio"] },
-    { name = "strawberry-graphql" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/e3/f1/aec2780e7b6d790a97347b4b4db1bf8d88a43598fa36c8671bd9b2640971/strawberry_sqlalchemy_mapper-0.6.3.tar.gz", hash = "sha256:44e0793c63ccd7c2c8b5452298457289b0e712d1049876fc71b549ccf11c36cb", size = 25908 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c0/0f/4cceebd7fd5192f1530486fd677880b188be5d44862e30d094c7574e5319/strawberry_sqlalchemy_mapper-0.6.3-py3-none-any.whl", hash = "sha256:408b141dde239c18d1342ff80d4347e06bd088136f93775f0195ceb26ba375f6", size = 25228 },
 ]
 
 [[package]]
