@@ -5,14 +5,24 @@ from fastapi import APIRouter, HTTPException
 from app.controllers.user import create_user, get_all_users, get_user_by_id
 from app.database import DatabaseSession
 from app.models.user import User
-from app.schemas.user import CreatedUser, CreateUser
+from app.schemas.rest.user import CreatedUser, CreateUser
 
 router = APIRouter(prefix="/user", tags=["user"])
 
 
 @router.post("/")
 def create_user_route(new_user: CreateUser, bd: DatabaseSession) -> CreatedUser:
-    return CreatedUser.model_validate(create_user(new_user, bd))
+    created_user: User = create_user(new_user, bd)
+    return CreatedUser(
+        id=created_user.id,
+        email=created_user.email,
+        login=created_user.login,
+        name=created_user.name, # type: ignore
+        firstname=created_user.firstname,
+        phone=created_user.phone,
+        function=created_user.function,
+        company=created_user.company,
+    )
 
 
 @router.get("/")

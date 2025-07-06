@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from app.database import DatabaseSession
 from app.models.user import User
-from app.schemas.user import CreateUser
+from app.schemas.rest.user import CreateUser
 
 
 def create_user(
