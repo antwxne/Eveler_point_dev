@@ -30,4 +30,3 @@ def get_db():
 
 
 DatabaseSession = Annotated[Session, Depends(get_db)]
-

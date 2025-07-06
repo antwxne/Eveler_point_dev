@@ -3,7 +3,7 @@ name = "graphql-api"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "fastapi[standard]>=0.115.14",
     "psycopg2-binary>=2.9.10",
@@ -14,5 +14,6 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "debugpy>=1.8.14",
     "ruff>=0.12.2",
 ]

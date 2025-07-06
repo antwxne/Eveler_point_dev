@@ -12,7 +12,7 @@ app.include_router(user.router)
 
 @app.get("/")
 async def ping():
-    return "PLOP"
+    return "OK"
 
 
 Base.metadata.create_all(engine)

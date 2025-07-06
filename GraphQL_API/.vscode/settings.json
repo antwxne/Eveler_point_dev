@@ -1,0 +1,10 @@
+{
+    "ruff.interpreter": [
+        "/home/antoine/Documents/Eveler/Eveler_point_dev/GraphQL_API/.venv/bin/python3.13"
+    ],
+    "ruff.path": [
+        "[\"/home/antoine/Documents/Eveler/Eveler_point_dev/GraphQL_API/.venv/bin/ruff\"]"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "standard"
+}

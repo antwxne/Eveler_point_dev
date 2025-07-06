@@ -1,4 +1,11 @@
 __pycache__
 Dockerfile
 docker-compose.yml
+Dockerfile.dev
+docker-compose.dev.yml
 .venv
+.ruff_cache
+.vscode
+.env
+.gitignore
+README.md

@@ -1,9 +1,14 @@
-from app.schemas.user import CreateUser
+from typing import List, Optional
+
 from app.database import DatabaseSession
 from app.models.user import User
+from app.schemas.user import CreateUser
 
 
-def create_user(db: DatabaseSession, new_user: CreateUser) -> User:
+def create_user(
+    new_user: CreateUser,
+    db: DatabaseSession,
+) -> User:
     to_insert: User = User(
         login=new_user.login,
         name=new_user.name,
@@ -18,3 +23,11 @@ def create_user(db: DatabaseSession, new_user: CreateUser) -> User:
     db.commit()
     db.refresh(to_insert)
     return to_insert
+
+
+def get_user_by_id(user_id: int, db: DatabaseSession) -> Optional[User]:
+    return db.query(User).filter(User.id == user_id).one_or_none()
+
+
+def get_all_users(db: DatabaseSession) -> List[User]:
+    return db.query(User).all()
