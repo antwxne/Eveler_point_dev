@@ -1,3 +1,4 @@
+from http import client
 from typing import List, Optional
 
 from app.database import DatabaseSession
@@ -18,6 +19,7 @@ def create_user(
         phone=new_user.phone,
         function=new_user.function,
         company=new_user.company,
+        client_id=new_user.client_id
     )
     db.add(to_insert)
     db.commit()

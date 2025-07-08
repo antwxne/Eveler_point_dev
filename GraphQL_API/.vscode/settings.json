@@ -1,10 +1,8 @@
 {
     "ruff.interpreter": [
-        "/home/antoine/Documents/Eveler/Eveler_point_dev/GraphQL_API/.venv/bin/python3.13"
+        "C:\\Users\\Antoine\\Documents\\Eveler_point_dev\\GraphQL_API\\.venv\\Scripts\\python.exe"
     ],
     "ruff.path": [
-        "[\"/home/antoine/Documents/Eveler/Eveler_point_dev/GraphQL_API/.venv/bin/ruff\"]"
+        "[\"C:\\Users\\Antoine\\Documents\\Eveler_point_dev\\GraphQL_API\\.venv\\Scripts\\ruff.exe\"]"
     ],
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "standard"
 }

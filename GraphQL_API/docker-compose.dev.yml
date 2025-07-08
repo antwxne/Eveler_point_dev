@@ -23,7 +23,7 @@ services:
         - action: rebuild
           path: ./pyproject.toml
     healthcheck:
-      test: curl --fail http://localhost:8000/ || exit 1
+      test: curl --fail http://localhost:8000/healthcheck || exit 1
       start_period: 60s
   db:
     image: postgres:14.18
@@ -35,12 +35,14 @@ services:
     volumes:
       - "database_volume:/var/lib/postgresql"
   adminer:
+    networks:
+      - backend
     image: adminer:latest
     ports:
       - "8080:8080"
 
 networks:
   backend:
-   
+    
 volumes:
   database_volume:

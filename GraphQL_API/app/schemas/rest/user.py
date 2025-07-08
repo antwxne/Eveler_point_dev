@@ -12,6 +12,7 @@ class CreateUser(BaseModel):
     phone: Optional[str] = None
     function: Optional[str] = None
     company: Optional[str] = None
+    client_id: int
 
 
 class CreatedUser(BaseModel):
@@ -23,3 +24,4 @@ class CreatedUser(BaseModel):
     phone: Optional[str] = None
     function: Optional[str] = None
     company: Optional[str] = None
+    client_id: int

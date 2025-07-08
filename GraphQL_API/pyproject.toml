@@ -10,6 +10,8 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "sqlalchemy>=2.0.41",
     "strawberry-graphql[fastapi]>=0.275.5",
+    "strawberry-sqlalchemy-mapper>=0.6.3",
+    "typer>=0.16.0",
 ]
 
 [dependency-groups]
