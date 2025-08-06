@@ -9,7 +9,7 @@ from app.database import Base
 class Client(Base):
     __tablename__ = "clients"
 
-    id = Column(UUID, primary_key=True, index=True, autoincrement=True, unique=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True, unique=True)
     name = Column(String, index=True, unique=True)
     users: Mapped[List["User"]] = relationship(back_populates="client")
 
@@ -17,7 +17,7 @@ class Client(Base):
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(UUID, primary_key=True, index=True, autoincrement=True, unique=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True, unique=True)
     login = Column(String, index=True, unique=True)
     name = Column(String)
     firstname = Column(String)

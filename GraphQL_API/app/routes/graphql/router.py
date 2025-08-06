@@ -15,6 +15,6 @@ async def get_context(
     return {"db": db_con, "sqlalchemy_loader": StrawberrySQLAlchemyLoader(db_con)}
 
 
-router = GraphQLRouter(
+router = GraphQLRouter(prefix="/graphql",tags=["GraphQL"],
     schema=strawberry.Schema(query=users.Query), context_getter=get_context
 )

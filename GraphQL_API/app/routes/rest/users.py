@@ -7,7 +7,7 @@ from app.database import DatabaseSession
 from app.models.user import User
 from app.schemas.rest.user import CreatedUser, CreateUser
 
-router = APIRouter(tags=["user"])
+router = APIRouter(prefix="/users", tags=["user"])
 
 
 @router.post("/")
