@@ -1,0 +1,22 @@
+services:
+  bucket:
+    image: quay.io/minio/aistor/minio:RELEASE.2026-02-07T07-43-34Z
+    container_name: bucket_point_dev
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - "./minio.license:/minio.license"
+      - "data:/mnt/data"
+      - "certs:/etc/minio/certs"
+    entrypoint: ["minio", "server", "/mnt/data", "--license", "/minio.license"]
+    networks:
+      - eveler_point_dev
+
+networks:
+  eveler_point_dev:
+    name: eveler_point_dev
+
+volumes:
+  certs:
+  data:
