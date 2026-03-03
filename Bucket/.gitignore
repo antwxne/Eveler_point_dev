@@ -2,3 +2,4 @@
 minio.license
 logs
 plugins
+**/__pycache__/
