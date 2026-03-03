@@ -16,23 +16,12 @@ docker run --rm \
     --network=$NETWORK_NAME \
     -v $MC_CONFIG_VOL:/root/.mc \
     minio/mc \
-    mb myminio/eveler-point-dev
-
-# Création bucket public
-docker run --rm \
-    --network=$NETWORK_NAME \
-    -v $MC_CONFIG_VOL:/root/.mc \
-    minio/mc \
-    mb myminio/eveler-point-dev-public
+    mb myminio/images-brutes
 
 docker run --rm \
     --network=$NETWORK_NAME \
     -v $MC_CONFIG_VOL:/root/.mc \
     minio/mc \
-    anonymous set download myminio/eveler-point-dev-public
+    mb myminio/images-web
 
-# Création utilisateur
-docker run --rm \
-    -v mc_config_data:/root/.mc \
-    --network=eveler_point_dev \
-    minio/mc admin user add myminio eveler_user eveler_password123
+

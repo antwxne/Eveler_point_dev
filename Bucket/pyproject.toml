@@ -1,0 +1,11 @@
+[project]
+name = "bucket"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "apache-airflow-providers-amazon>=9.21.0",
+    "apache-airflow>=2.10.0",
+    "pillow>=12.1.1",
+]

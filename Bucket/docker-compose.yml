@@ -5,13 +5,57 @@ services:
     ports:
       - "9000:9000"
       - "9001:9001"
+    environment:
+      # Ajout des credentials par défaut pour éviter les surprises
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
     volumes:
       - "./minio.license:/minio.license"
       - "data:/mnt/data"
       - "certs:/etc/minio/certs"
-    entrypoint: ["minio", "server", "/mnt/data", "--license", "/minio.license"]
+    entrypoint: ["minio", "server", "/mnt/data", "--license", "/minio.license", "--console-address", ":9001"]
     networks:
       - eveler_point_dev
+  
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - eveler_point_dev
+
+  airflow:
+    image: apache/airflow:2.10.1-python3.12
+    container_name: airflow
+    depends_on:
+      - postgres
+      - bucket
+    environment:
+      - LOAD_EX_EXAMPLES=n
+      - AIRFLOW__CORE__PARALLELISM=1
+      - AIRFLOW__CORE__MAX_ACTIVE_TASKS_PER_DAG=1
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
+      - AIRFLOW_CONN_MINIO_DEFAULT=aws://minioadmin:minioadmin@?endpoint_url=http%3A%2F%2Fbucket%3A9000
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    ports:
+      - "8080:8080"
+    networks:
+      - eveler_point_dev
+    command: >
+      bash -c "pip install --no-cache-dir apache-airflow-providers-amazon pillow &&
+      airflow db init &&
+      airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@example.com --password admin &&
+      (airflow webserver & airflow scheduler)"
 
 networks:
   eveler_point_dev:
@@ -20,3 +64,4 @@ networks:
 volumes:
   certs:
   data:
+  postgres_data:

@@ -1,2 +1,4 @@
 .env
 minio.license
+logs
+plugins
